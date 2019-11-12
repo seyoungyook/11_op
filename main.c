@@ -5,19 +5,18 @@
 
 int main(void) {
 	
-	char *pc;
-	int *pi;
+	char buffer[8];
 	double *pd;
+	int *pi;
 	
-	pc = (char*)10000;
-	pi = (int*)10000;
-	pd = (double*)10000;
+	pd = (double*)buffer;
+	*pd = 3.14;
+	printf("%f\n",*(double*)buffer); 
 	
-	printf("before increase : pc = %d, pi = %d, pd = %d\n", pc,pi,pd);
+	pi = (int *)buffer;
+	*pi = 123;
+	*(pi+1) = 456;
+	printf("%d %d\n", *(int*)buffer, *((int*)buffer +1));
 	
-	pc++;
-	pi++;
-	pd++;
-	printf("after increase : pc = %d, pi = %d, pd = %d\n", pc,pi,pd);
 	return 0;
 }
